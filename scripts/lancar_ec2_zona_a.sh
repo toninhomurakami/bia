@@ -9,6 +9,6 @@ fi
 
 aws ec2 run-instances --image-id ami-08982f1c5bf93d976 --count 1 --instance-type t3.micro \
 --security-group-ids $security_group_id --subnet-id $subnet_id --associate-public-ip-address \
---block-device-mappings '[{"DeviceName":"/dev/xvda","Ebs":{"VolumeSize":15,"VolumeType":"gp2"}}]' \
+--block-device-mappings '[{"DeviceName":"/dev/xvda","Ebs":{"VolumeSize":40,"VolumeType":"gp3"}}]' \
 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=bia-dev}]' \
 --iam-instance-profile Name=role-acesso-ssm --user-data file://user_data_ec2_zona_a.sh
